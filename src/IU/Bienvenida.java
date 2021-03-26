@@ -17,9 +17,9 @@ import Funciones.GuardarValores;
 
 public class Bienvenida extends JFrame implements ActionListener {
 
-	private JTextField textfield1, textfield2, textfield3, textfield4, textfield5;
-	private JLabel label1, label2, label3, label4, labeluva, labelman, labelper, labelmor, labelbpago, labelprecio;
-	private JButton boton2, boton3;
+	public static JTextField textfield1, textfield2, textfield3, textfield4, textfield5;
+	private JLabel label1, label2, label3, label4, labeluva, labelman, labelper, labelmor, labelbpago, labelprecio, labelPago;
+	private JButton boton2;
 	private JMenuBar menubar;
 	private JMenu menu1; 
 	private JMenuItem menuItem1, menuItem2; 
@@ -66,8 +66,7 @@ public class Bienvenida extends JFrame implements ActionListener {
 							VentanaResumen.setResizable(false);
 							VentanaResumen.setLocationRelativeTo(null);
 							this.setVisible(false);
-							
-							
+													
 
 						}
 
@@ -88,17 +87,19 @@ public class Bienvenida extends JFrame implements ActionListener {
 			this.setVisible(false);
 		}
 		
+		if (e.getSource() == menuItem2) {
+			ReportesVentas VentaReportesVentas = new ReportesVentas();
+			VentaReportesVentas.setBounds(0, 0, 450, 450);
+			VentaReportesVentas.setVisible(true);
+			VentaReportesVentas.setResizable(false);
+			VentaReportesVentas.setLocationRelativeTo(null);
+			this.setVisible(false);
+		}
 		
-		
-		
-		
-		
-		
-		
-		
-		
+			
 	}
 	
+
 
 	public static void main(String[] args) {
 		resources();
@@ -201,11 +202,13 @@ public class Bienvenida extends JFrame implements ActionListener {
 		add(boton2);
 		boton2.addActionListener(this);
 
-		boton3 = new JButton("ingrese pago");
-		boton3.setBounds(305, 240, 120, 30);
-		add(boton3);
-		boton3.addActionListener(this);
-
+		JLabel labelPago= new JLabel("ingrese pago");
+		labelPago.setBounds(305, 240, 120, 30);
+		labelPago.setFont(new Font("Andale Mono", 3, 18));
+		labelPago.setForeground(new Color(7, 43, 246));
+		add(labelPago);
+		
+		
 		textfield5 = new JTextField();
 		textfield5.setBounds(305, 280, 50, 20);
 		add(textfield5);
